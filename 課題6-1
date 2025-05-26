@@ -1,0 +1,24 @@
+import requests
+
+APP_ID = "2df0dbaf65e5980cfa2675383625ff06f473a0fe"
+API_URL  = "https://api.e-stat.go.jp/rest/3.0/app/json/getStatsData"
+
+params = {
+    "appId": APP_ID,
+    "statsDataId":"0003450538",//就業状態等基本集計　男女，年齢（各歳），国籍総数か日本人，労働力状態別人口（15歳以上）－全国，都道府県，21大都市，特別区，人口50万以上の市
+    "metaGetFlg":"Y",
+    "cntGetFlg":"N",
+    "explanationGetFlg":"Y",
+    "annotationGetFlg":"Y",
+    "sectionHeaderFlg":"1",
+    "replaceSpChars":"0",
+    "lang": "J"  # 日本語を指定
+}
+
+
+
+#response = requests.get(API_URL, params=params)
+response = requests.get(API_URL, params=params)
+# Process the response
+data = response.json()
+print(data)
